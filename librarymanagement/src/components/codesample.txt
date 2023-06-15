@@ -1,0 +1,62 @@
+
+// let loginForm = document.getElementById("login");
+// loginForm.addEventListener("submit", (e) => {
+//     e.preventDefault();
+// });
+// function display1(){
+//     let username = document.getElementById("usrname");
+//     console.log(username.value);
+//     let password = document.getElementById("password");
+//     console.log(password.value);
+
+//     out = {
+//         usrname : username.value,
+//         password : password.value
+//     }
+//     fetch('http://localhost:8080/api/auth/signin',{
+//         method: 'POST',
+//         mode: 'cors',
+//         referrer: 'http://localhost:3000/browse',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Access-Control-Allow-Origin': 'http://localhost:3000/browse/*',
+//         },
+//         body: JSON.stringify(out)
+//     }).then(async response => {
+//        const data = await response.json();
+//        console.log(data.token);
+//         token = `Bearer ${data.token}`;
+//        console.log("Success: ", data)
+//     })
+//     .catch(err => console.log('Err: ',err));
+// }
+
+// dt = data1[2].imageList;
+// dt.forEach(e => {
+//  let img = document.createElement("img");
+//  img.setAttribute("src", e)
+//  document.getElementById("imglist").appendChild(img);
+// });
+
+            /* <form className="form" id="login">
+            <h1 className="form__title">Login</h1>
+            <div className="form__message form__message--error"></div>
+            <div className="form__input-group">
+                <input type="text" className="form__input" id="usrname" autofocus placeholder="Username or email"></input>
+                <div className="form__input-error-message"></div>
+            </div>
+            <div className="form__input-group">
+                <input type="password" className="form__input" id="password" autofocus placeholder="Password"></input>
+                <div className="form__input-error-message"></div>
+            </div>
+            <button className="form__button" type="submit">Continue</button>
+            <p className="form__text">
+                <Link to="#" className="form__link">Forgot your password?</Link>
+            </p>
+            <p className="form__text">
+                <Link className="form__link" to="./" id="linkCreateAccount">Don't have an account? Create account</Link>
+            </p>
+        </form>
+        <button id="btn">Get token</button>
+        <button id="btn">Get All Picture of Adidas Yeezy Beluga</button>
+<div id="imglist"></div> */
