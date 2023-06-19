@@ -6,8 +6,8 @@ function Home() {
             fetch('http://localhost:8080/auth/authors', {
                 method: 'get'
             })
-                .then(async res => await res.json())
-                .then(async data => setData(data))
+                .then(res => res.json())
+                .then(data => setData(data))
                 .catch(err => console.log(err))
         }
         getDataFromFetchingHttp();
