@@ -15,10 +15,11 @@ function Home() {
 
     return (
         <div>
+            <h1 style={{color: "navy"}}>List Of Authors</h1>
             {data ? data.map((item,index) => {
                 return (
                     <div key={index + 1}>
-                        <p style={{color:"grey"}}>{index + 1} - {item.firstName} {item.lastName}</p>
+                        <p style={{color:"#000"}}>{index + 1} - {item.firstName} {item.lastName}</p>
        
                     </div>
                 )

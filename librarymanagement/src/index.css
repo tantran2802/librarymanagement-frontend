@@ -4,6 +4,7 @@
 * {
     box-sizing: border-box;
     text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 html {
@@ -12,5 +13,5 @@ html {
 
 body {
     margin: 0;
-    background-color: #fff;
+    background-color: #ebebed;
 }
