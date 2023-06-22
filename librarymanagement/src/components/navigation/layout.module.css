@@ -1,3 +1,10 @@
+.structure{
+    display: grid;
+}
+.dashboard-container {
+    display: flex;
+    flex-direction: row;
+}
 .main{
     width: 90%;
     margin: 3rem auto;
