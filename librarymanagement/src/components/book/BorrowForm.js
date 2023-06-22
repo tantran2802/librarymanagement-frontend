@@ -1,8 +1,9 @@
-import { useNavigate} from "react-router-dom";
-import {useRef} from 'react';
+// import { useNavigate} from "react-router-dom";
+import {useRef, useState} from 'react';
 import classes from './bookform.module.css';
 export default function Borrow(){
-    const history = useNavigate();
+    // const history = useNavigate();
+    const [borrowNote, setBorrowNote] = useState('');
     const customerId = useRef();
     const borrowDate = useRef();
     const dueDate = useRef();
@@ -32,9 +33,13 @@ export default function Borrow(){
                     'Content-Type' : 'application/json'
                 }
             })
-            .then(() => {
-                history('/home');
+            .then(async (res) => {
+                const data = await res.json();
+                setBorrowNote(data);
+                console.log(data);
+                // history('/home');
             })
+            
             .catch(err => console.log(err));
         }
         createBorrowNote();
@@ -65,6 +70,13 @@ export default function Borrow(){
                 <button>Add Borrow Note</button>
             </div>
         </form>
+        {borrowNote ? 
+         (
+                    <div key={borrowNote.id}>
+                        <p style={{color:"#000"}}>{borrowNote.id}. Customer No. {borrowNote.customerID} - Borrow Date: {borrowNote.borrowDate} - Due Date: {borrowNote.dueDate}</p>
+                    </div>
+         )
+             : 'Loading...'}
     </div>
 
     )
