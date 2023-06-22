@@ -7,31 +7,31 @@ const sidebar_menu = [
     {
         id: 1,
         icon: DashboardIcon,
-        path: '/',
+        path: '/home',
         title: 'Dashboard',
     },
     {
         id: 2,
         icon: ProductIcon,
-        path: '/orders',
+        path: '/customers',
         title: 'Customer',
     },
     {
         id: 3,
         icon: ShippingIcon,
-        path: '/products',
+        path: '/bookservice',
         title: 'Books',
     },
     {
         id: 4,
         icon: UserIcon,
-        path: '/profile',
+        path: '/borrownote',
         title: 'Borrow Note',
     },
     {
         id: 5,
         icon: UserIcon,
-        path: '/profile',
+        path: '/response',
         title: 'Response',
     }
 ]
