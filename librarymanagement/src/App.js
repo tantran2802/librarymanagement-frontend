@@ -5,7 +5,7 @@ import Layout from './components/navigation/Layout';
 import Report from './components/report/Report';
 import BookService from './components/book/BookService';
 import Borrow from './components/book/BorrowForm';
-import Orders from './pages/Orders/Customer';
+import Customer from './pages/Customer/Customer';
 function App() {
   return (
     <Layout>
@@ -15,7 +15,7 @@ function App() {
         <Route path='/bookservice' element={<BookService/>}></Route>
         
         <Route path='/borrownote' element={<Borrow />}></Route>
-        <Route path='/customers' element={<Orders />}></Route>
+        <Route path='/customers' element={<Customer />}></Route>
         <Route path='/report'element={<Report />}></Route>
 
       </Routes>

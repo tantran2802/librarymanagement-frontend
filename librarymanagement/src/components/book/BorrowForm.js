@@ -1,8 +1,29 @@
-// import { useNavigate} from "react-router-dom";
-import {useRef, useState} from 'react';
+import {useRef, useState, useEffect} from 'react';
 import classes from './bookform.module.css';
+// import { Link } from 'react-router-dom';
 export default function Borrow(){
-    // const history = useNavigate();
+
+const [searchVal, setSearchVal] = useState("");
+const [customer, setCustomer] = useState();
+const handleChange = (e) => {
+    setSearchVal(e.target.value);
+}
+useEffect(() => {
+    function searchCustId(){
+        fetch(`http://localhost:8080/auth/customers/${searchVal}`,{
+            method : 'GET'
+        }).then(async res => {
+            const data = await res.json();
+            setCustomer(data);
+        })
+        .catch(err => console.log(err));
+    }
+    const timer = setTimeout(() => {
+        searchCustId();
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [searchVal]);
+
     const [borrowNote, setBorrowNote] = useState('');
     const customerId = useRef();
     const borrowDate = useRef();
@@ -37,7 +58,6 @@ export default function Borrow(){
                 const data = await res.json();
                 setBorrowNote(data);
                 console.log(data);
-                // history('/home');
             })
             
             .catch(err => console.log(err));
@@ -46,13 +66,21 @@ export default function Borrow(){
     }
 
     return(
-
     <div>
         <h1>Borrow Note</h1>
         <form onSubmit={submitHandler} className={classes.form}>
             <div className={classes.control}>
                 <label htmlFor="customerid">Customer Id</label>
-                <input type="number" required id="customerid" ref={customerId}/>
+                <input type="number" required id="customerid" ref={customerId} 
+                onChange={handleChange}/>
+            </div>
+            <div key={1}>
+            {customer && (<p>First name: {customer.firstName} <br/>
+                             Last name: {customer.lastName}  <br/>
+                            Address: {customer.address}  <br/>
+                            Status: {customer.active}  <br/>
+                            Number of Return late: {customer.numberOfTimeReturnLate}
+                            </p>)}
             </div>
             <div className={classes.control}>
                 <label htmlFor="borrowdate">Borrow Date</label>
@@ -70,13 +98,13 @@ export default function Borrow(){
                 <button>Add Borrow Note</button>
             </div>
         </form>
-        {borrowNote ? 
-         (
-                    <div key={borrowNote.id}>
-                        <p style={{color:"#000"}}>{borrowNote.id}. Customer No. {borrowNote.customerID} - Borrow Date: {borrowNote.borrowDate} - Due Date: {borrowNote.dueDate}</p>
-                    </div>
-         )
-             : 'Loading...'}
+        
+        {borrowNote && (
+        <div key={borrowNote.id}>
+            <p style={{color:"#000"}}>{borrowNote.id}. Customer No. {borrowNote.customerID} - Borrow Date: {borrowNote.borrowDate} - Due Date: {borrowNote.dueDate}</p>
+            <button>View Detail</button>
+        </div>
+        )}
     </div>
 
     )
