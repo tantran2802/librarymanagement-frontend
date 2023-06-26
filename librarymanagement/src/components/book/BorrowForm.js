@@ -1,12 +1,12 @@
 import { useRef, useState, useEffect } from 'react';
 import classes from './bookform.module.css';
-// import { Link } from 'react-router-dom';
 export default function Borrow() {
 
     const [searchVal, setSearchVal] = useState("");
     const [customer, setCustomer] = useState();
-    const [borrowNoteId, setBorrowNoteId] = useState();
-    const [borrowNote, setBorrowNote] = useState('');
+    const [borrowNoteId, setBorrowNoteId] = useState([]);
+    const [borrowNoteDetail, setBorrowNoteDetail] = useState([]);
+    const [borrowNote, setBorrowNote] = useState(); 
     const customerId = useRef();
     const dueDate = useRef();
     const physicalBookIdList = useRef();
@@ -56,7 +56,6 @@ export default function Borrow() {
                 .then(async (res) => {
                     const data = await res.json();
                     setBorrowNote(data);
-                    console.log(data)
                 })
                 .catch(err => console.log(err));
         }
@@ -65,8 +64,8 @@ export default function Borrow() {
     function getBorrowNoteDetail(id) {
         fetch(`http://localhost:8080/auth/orderDetails/borrownote/${id}`, { method: 'GET' })
             .then(async res => {
-                const data = await res.json();
-                setBorrowNoteId(data);
+                const da = await res.json();
+                setBorrowNoteId(da);
             }).catch(err => console.log(err));
     }
     return (
@@ -102,8 +101,8 @@ export default function Borrow() {
             {borrowNote && (
                 <div key={borrowNote.id}>
                     <p style={{ color: "#000" }}>{borrowNote.id}. Customer No. {borrowNote.customerID} - Borrow Date: {borrowNote.borrowDate} - Due Date: {borrowNote.dueDate}</p>
-                    <button onClick={getBorrowNoteDetail(borrowNote.id)}>View Detail</button>
-                    {borrowNoteId && borrowNoteId.map((item) => {
+                    <button onClick={() => getBorrowNoteDetail(borrowNote.id)}>View Detail</button>
+                    {borrowNoteId ? borrowNoteId.map((item) => {
                         return (
                             <div key={item.id}>
                                 <p>{item.borrowNoteID}</p>
@@ -118,7 +117,7 @@ export default function Borrow() {
                                 <br/>
                             </div>
                         )
-                    })}
+                    }) : 'Loading...'}
                 </div>
             )}
         </div>

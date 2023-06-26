@@ -1,5 +1,14 @@
+import { Link, Outlet } from "react-router-dom";
 export default function Option(){
     return(
-        <div></div>
+        <div>
+            <header>
+                <ul>
+                    <li><Link className='hyperlink' to='/borrownote/borrow' >Borrow</Link></li>
+                    <li><Link className='hyperlink' to='/borrownote/return' >Return</Link></li>
+                </ul>
+            </header>
+            <Outlet/>
+        </div>
     );
 }
