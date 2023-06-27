@@ -13,23 +13,35 @@ const sidebar_menu = [
     {
         id: 2,
         icon: ProductIcon,
-        path: '/customers',
+        path: '/customer',
         title: 'Customer',
     },
     {
         id: 3,
+        icon: ProductIcon,
+        path: '/customers',
+        title: 'Customer',
+    },
+    {
+        id: 4,
         icon: ShippingIcon,
         path: '/bookservice',
         title: 'Books',
     },
     {
-        id: 4,
+        id: 5,
+        icon: ShippingIcon,
+        path: '/books',
+        title: 'Books',
+    },
+    {
+        id: 6,
         icon: UserIcon,
         path: '/borrownote',
         title: 'Borrow Note',
     },
     {
-        id: 5,
+        id: 7,
         icon: UserIcon,
         path: '/response',
         title: 'Response',

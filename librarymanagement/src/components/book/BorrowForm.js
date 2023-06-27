@@ -5,7 +5,6 @@ export default function Borrow() {
     const [searchVal, setSearchVal] = useState("");
     const [customer, setCustomer] = useState();
     const [borrowNoteId, setBorrowNoteId] = useState([]);
-    const [borrowNoteDetail, setBorrowNoteDetail] = useState([]);
     const [borrowNote, setBorrowNote] = useState(); 
     const customerId = useRef();
     const dueDate = useRef();
@@ -69,7 +68,7 @@ export default function Borrow() {
             }).catch(err => console.log(err));
     }
     return (
-        <div>
+        <div className='dashboard-content'>
             <h1>Borrow Note</h1>
             <form onSubmit={submitHandler} className={classes.form}>
                 <div className={classes.control}>

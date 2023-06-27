@@ -4,8 +4,9 @@ import { useLocation } from 'react-router-dom';
 import SideBarItem from './sidebar-item';
 
 import './styles.css';
-import logo from '../../assets/images/white-logo.png';
+import logo from '../../assets/images/pro1.jpg';
 import LogoutIcon from '../../assets/icons/logout.svg';
+import { Box } from '@mui/material';
 
 function SideBar ({ menu }) {
     const location = useLocation();
@@ -28,9 +29,13 @@ function SideBar ({ menu }) {
         <nav className='sidebar'>
             <div className='sidebar-container'>
                 <div className='sidebar-logo-container'>
-                    <img
+                    <div >
+                        <h2 >Bibliothèque Nostagia</h2>
+
+                </div>
+                    {/* <img
                         src={logo}
-                        alt="logo" />
+                        alt="logo" /> */}
                 </div>
 
                 <div className='sidebar-container'>

@@ -2,7 +2,6 @@ import { useNavigate} from "react-router-dom"
 import {useRef} from 'react';
 import classes from './bookform.module.css'
 export default function ImportPhysicalBook(){
-    const history = useNavigate();
     const price = useRef();
     const date = useRef();
     const bookId = useRef();
@@ -32,15 +31,12 @@ export default function ImportPhysicalBook(){
                 const data = await res.json();
                 console.log(data);
             })
-            .then(() => {
-                history('/home');
-            })
             .catch(err => console.log(err));
         }
         addPhysicalBook();
     }
     return(
-        <div>
+        <div className="dashboard-content">
             <h1>Physical Book Import</h1>
             <form onSubmit={submitHandler} className={classes.form}>
                 <div className={classes.control}>

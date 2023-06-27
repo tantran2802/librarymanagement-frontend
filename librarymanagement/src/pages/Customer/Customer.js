@@ -1,6 +1,6 @@
 import { useState} from "react";
-import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
-
+import DashboardHeader from "../../components/DashboardHeader";
+import "./styles.css";
 function Customer() {
   const [customers, setCustomers] = useState([]);
 
@@ -35,7 +35,7 @@ function Customer() {
           {customers.length !== 0 ? (
             <tbody>
               {customers.map((item, index) => (
-                <tr key={index}>
+                <tr key={item.id}>
                   <td>
                     <span>{item.firstName}</span>
                   </td>

@@ -6,6 +6,7 @@ export default function Option(){
                 <ul>
                     <li><Link className='hyperlink' to='/borrownote/borrow' >Borrow</Link></li>
                     <li><Link className='hyperlink' to='/borrownote/return' >Return</Link></li>
+                    <li><Link className='hyperlink' to='/borrownote/borrow-notes' >BorrowNote</Link></li>
                 </ul>
             </header>
             <Outlet/>

@@ -1,14 +1,18 @@
 .sidebar {
     top: 0;
     left: 0;
-    width: 250px;
+    width: 300px;
     height: 100vh;
     display: flex;
     justify-content: center;
     position: sticky;
-    background-image: linear-gradient(pink, rgb(0, 102, 128), #f68d89);
+    /* background-image: linear-gradient(pink, rgb(0, 102, 128), #f68d89); */
+    background: url("../../assets/images/pro12.jpg") fixed ;
 }
 .sidebar-logo-container {
+    text-align: center;
+    font-style: italic;
+    color: #FFFFFF;
     display: 'flex';
     align-items: center;
 }
@@ -38,7 +42,7 @@
     cursor: pointer;
 }
 .sidebar-item:hover {
-    background-color: #004B77;
+    background-color: pink;
 }
 .sidebar-item-active {
     padding: 1.5em;
@@ -49,7 +53,7 @@
     text-decoration: none;
     align-items: center;
     justify-content: flex-start;
-    background-color: #004B77;
+    background-color: pink ;
     cursor: pointer;
 }
 .sidebar-item-icon {

@@ -7,13 +7,4 @@
 }
 .main{
     width: 100%;
-    margin: 3rem auto;
-
-}
-.dashboard-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: #F0F2F5;
-    width: 100px;
 }
