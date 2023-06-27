@@ -19,8 +19,7 @@ function Home() {
             {data ? data.map((item,index) => {
                 return (
                     <div key={index + 1}>
-                        <p style={{color:"#000"}}>{index + 1} - {item.firstName} {item.lastName}</p>
-       
+                        <p style={{color:"#000"}}>{index +1} - {item.firstName} {item.lastName}</p>
                     </div>
                 )
             }) : 'Loading...'}

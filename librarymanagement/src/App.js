@@ -11,6 +11,7 @@ import ReturnForm from './components/book/ReturnForm';
 import Book from './pages/Book/book';
 import BorrowNote from './pages/BorrowNote/BorrowNote';
 import Orders from './pages/Orders';
+import Responses from './pages/Response/response';
 function App() {
   return (
     <Layout>
@@ -25,7 +26,7 @@ function App() {
         <Route exact path="/books" element={<Book />} />
         <Route path='/customer' element={<Customer />}></Route>
         <Route exact path="/customers" element={<Orders />} />
-        <Route path='/report' element={<Report />}></Route>
+        <Route path='/response' element={<Responses />}></Route>
 
       </Routes>
     </Layout>

@@ -14,7 +14,7 @@
     flex-direction: column;
     gap:25px;
     overflow: auto;
-    background: url("../../assets/images/pro15.jpg") fixed ;
+    background-image: url("../../assets/images/pro15.jpg");
     background-repeat: no-repeat;
 
 }
