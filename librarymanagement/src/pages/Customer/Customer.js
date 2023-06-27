@@ -1,6 +1,5 @@
 import { useState} from "react";
 import DashboardHeader from "../../components/DashboardHeader";
-import "./styles.css";
 function Customer() {
   const [customers, setCustomers] = useState([]);
 

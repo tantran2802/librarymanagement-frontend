@@ -1,23 +1,31 @@
-import { useNavigate} from "react-router-dom"
-import {useRef} from 'react';
+import {useRef, useState} from 'react';
 import classes from './bookform.module.css'
 export default function ImportPhysicalBook(){
+    const id = JSON.parse(localStorage.getItem("id"));
+    const [publishHouse, setPublishHouse] = useState([]);
+    const [PhyBook, setPhyBook] = useState();
     const price = useRef();
     const date = useRef();
-    const bookId = useRef();
+    const bookId = id;
     const publishingHouseId = useRef();
+    function getPublishingHouse(){
+        fetch('http://localhost:8080/auth/publishingHouses',{method: 'GET'})
+        .then(res => res.json())
+        .then(data => setPublishHouse(data))
+        .catch(err => console.log(err));
+    }
+    getPublishingHouse();
     function submitHandler(event){
         event.preventDefault();
         const enteredPrice = price.current.value;
         const enteredDate = date.current.value;
-        const enteredBooId = bookId.current.value;
-        const enteredPublishingHouseId = publishingHouseId.current.value;
+        const enteredPublishingHouse = publishingHouseId.current.value
         
         const physicalBook = {
             importPrice : enteredPrice,
             importDate : enteredDate,
-            bookId : enteredBooId,
-            publishingHouseId : enteredPublishingHouseId
+            bookId : bookId,
+            publishingHouseId : enteredPublishingHouse
         }
         function addPhysicalBook(){
             fetch('http://localhost:8080/auth/physicalBooks',{
@@ -27,10 +35,8 @@ export default function ImportPhysicalBook(){
                     'Content-Type' : 'application/json'
                 }
             })
-            .then(async res => {
-                const data = await res.json();
-                console.log(data);
-            })
+            .then(res => res.json())
+            .then(res => setPhyBook(res))
             .catch(err => console.log(err));
         }
         addPhysicalBook();
@@ -48,17 +54,26 @@ export default function ImportPhysicalBook(){
                     <input type="date" required id="date" ref={date}/>
                 </div>
                 <div className={classes.control}>
-                    <label htmlFor="bookid">Book Id</label>
-                    <input type="number" required id="bookid" ref={bookId}/>
-                </div>
-                <div className={classes.control}>
-                    <label htmlFor="publishinghouseid">Publishing House Id</label>
-                    <input type="number" required id="publishinghouseid" ref={publishingHouseId}/>
+                    <label for="publishinghouse">Choose Publishing House:</label>
+                    <select id="publishinghouse" ref={publishingHouseId}>
+                        {publishHouse && publishHouse.map((item) => {
+                            return (<option value={item.id}  key={item.id}> {item.name}</option>)
+                        })}
+                    </select>
                 </div>
                 <div className={classes.actions}>
                     <button>Add Physical Book</button>
                 </div>
             </form>
+            <div >
+                {PhyBook && (<p key={PhyBook.id} style={{backgroundColor : "skyblue", borderColor : 'black', width: '300px', borderRadius: '10px'}}>
+            Book Name: {PhyBook.bookName}<br/>
+            Book Code: {PhyBook.id} <br/>
+            Publish Date: {PhyBook.datePublish} <br/>
+            Immport Price: {PhyBook.importPrice} <br/>
+            Import Date: {PhyBook.importDate}
+            </p>)}</div>
+          
         </div>
 
     );

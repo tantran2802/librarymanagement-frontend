@@ -4,9 +4,10 @@ h1{
 .form{
     background-color: #fffbfa;
     height: 400px;
-    width: 100%;
+    width: 500px;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
 }
 .control{
     margin-top: 10px;
@@ -15,20 +16,19 @@ h1{
    font-size: 1.2em;
 }
 .control input{
-    width: 150px;
     height: 30px;
     background-color: #d9d9d9;
     display: block;
     clear: both;
     box-shadow: #000;
+    border-radius: 6px;
 }
 .actions {
     margin-top: 20px;
 }
 .actions button{
     height: 30px;
-    width: 150px;
-    background-color: #342E37;
+    background-color: skyblue;
     color: #fff;
     border-radius: 6px;
 }

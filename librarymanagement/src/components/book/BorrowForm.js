@@ -72,12 +72,12 @@ export default function Borrow() {
             <h1>Borrow Note</h1>
             <form onSubmit={submitHandler} className={classes.form}>
                 <div className={classes.control}>
-                    <label htmlFor="customerid">Customer Id</label>
+                    <label htmlFor="customerid">Customer Code</label>
                     <input type="number" required id="customerid" ref={customerId}
                         onChange={handleChange} />
                 </div>
                 <div key={1}>
-                    {customer && (<p style={{backgroundColor : "skyblue", borderColor : 'black'}}>First name: {customer.firstName} <br />
+                    {customer && (<p style={{backgroundColor : "skyblue", borderColor : 'black', width: '300px', borderRadius: '10px'}}>First name: {customer.firstName} <br />
                         Last name: {customer.lastName}  <br />
                         Address: {customer.address}  <br />
                         Status: {customer.active}  <br />
@@ -89,30 +89,28 @@ export default function Borrow() {
                     <input type="date" required id="duedate" ref={dueDate} />
                 </div>
                 <div className={classes.control}>
-                    <label htmlFor="physicalbookidlist">Physical Book Id List</label>
+                    <label htmlFor="physicalbookidlist">Book Code List</label>
                     <input type="text" required id="physicalbookidlist" ref={physicalBookIdList} />
                 </div>
                 <div className={classes.actions}>
-                    <button>Add Borrow Note</button>
+                    <button>Create Borrow Note</button>
                 </div>
             </form>
 
             {borrowNote && (
                 <div key={borrowNote.id}>
-                    <p style={{ color: "#000" }}>{borrowNote.id}. Customer No. {borrowNote.customerID} - Borrow Date: {borrowNote.borrowDate} - Due Date: {borrowNote.dueDate}</p>
+                    <p style={{backgroundColor : "#99ff99", borderColor : 'black', width: '300px', borderRadius: '10px'}}>{borrowNote.id}. Customer No. {borrowNote.customerID} - Borrow Date: {borrowNote.borrowDate} - Due Date: {borrowNote.dueDate}</p>
                     <button onClick={() => getBorrowNoteDetail(borrowNote.id)}>View Detail</button>
                     {borrowNoteId ? borrowNoteId.map((item) => {
                         return (
                             <div key={item.id}>
-                                <p>{item.borrowNoteID}</p>
-                                <p>{item.customerID}</p>
-                                <p>{item.customerFirstName}</p>
-                                <p>{item.customerLastName}</p>
-                                <p>{item.customerPhoneNumber}</p>
-                                <p>{item.physicalBookID}</p>
-                                <p>{item.physicalBookName}</p>
-                                <p>{item.returnDate}</p>
-                                <p>{item.fineFee}</p>
+                                <p style={{backgroundColor : "#99ff99", borderColor : 'black', width: '300px', borderRadius: '10px'}}>
+                                Borrow Note No. {item.borrowNoteID} <br/>
+                                Customer Code {item.customerID} <br/>
+                                Name: {item.customerFirstName} {item.customerLastName} <br/>
+                                Phone Number: {item.customerPhoneNumber} <br/>
+                                Book Code: {item.physicalBookID} <br/>
+                                Book Name: {item.physicalBookName} <br/></p>
                                 <br/>
                             </div>
                         )

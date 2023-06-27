@@ -4,7 +4,6 @@ import DashboardHeader from "../../components/DashboardHeader";
 import all_orders from "../../constants/orders";
 import { calculateRange, sliceData } from "../../utils/table-pagination";
 
-import "./styles.css";
 import axios from "axios";
 
 function Responses() {

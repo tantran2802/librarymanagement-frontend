@@ -4,6 +4,8 @@ export default function Option(){
         <div>
             <header>
                 <ul>
+                    <li><Link className='hyperlink' to='/borrownote/bookservice' >Import Book</Link></li>
+                    <li><Link className='hyperlink' to='/borrownote/customer' >List Customer</Link></li>
                     <li><Link className='hyperlink' to='/borrownote/borrow' >Borrow</Link></li>
                     <li><Link className='hyperlink' to='/borrownote/return' >Return</Link></li>
                     <li><Link className='hyperlink' to='/borrownote/borrow-notes' >BorrowNote</Link></li>
