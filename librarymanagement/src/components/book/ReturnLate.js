@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import classes from './bookform.module.css';
-export default function ReturnForm(){
+export default function ReturnLate(){
     const [searchVal, setSearchVal] = useState("");
     const [customer, setCustomer] = useState();
     const customerId = useRef();
@@ -40,7 +40,7 @@ export default function ReturnForm(){
             physicalBookIds : arrOfNum,
         }
         function createBorrowNote() {
-            fetch('http://localhost:8080/auth/orderDetails/returnbook', {
+            fetch('http://localhost:8080/auth/orderDetails/fine_fee', {
                 method: 'POST',
                 body: JSON.stringify(BorrowNote),
                 headers: {
@@ -57,7 +57,7 @@ export default function ReturnForm(){
     }
     return(
         <div className='dashboard-content'>
-            <h1>Return Book Form </h1>
+            <h1> Late Return Book Form </h1>
             <form onSubmit={submitHandler} className={classes.form}>
                 <div className={classes.control}>
                     <label htmlFor="customerid">Customer Code</label>

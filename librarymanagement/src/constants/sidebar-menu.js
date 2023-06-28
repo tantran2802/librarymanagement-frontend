@@ -33,6 +33,12 @@ const sidebar_menu = [
         icon: UserIcon,
         path: '/response',
         title: 'Response',
+    },
+    {
+        id: 6,
+        icon: UserIcon,
+        path: '/report',
+        title: 'Report',
     }
 ]
 

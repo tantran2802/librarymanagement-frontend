@@ -12,6 +12,8 @@ import BorrowNote from './pages/BorrowNote/BorrowNote';
 import Orders from './pages/Orders';
 import ImportPhysicalBook from './components/book/ImportPhysicalBook';
 import Responses from './pages/Response/response';
+import ReturnLate from './components/book/ReturnLate';
+import Report from './components/report/Report';
 function App() {
   return (
     <Layout>
@@ -22,12 +24,14 @@ function App() {
           <Route path='/borrownote/borrow' element={<Borrow />}></Route>
           <Route path='/borrownote/ImportPhysicalBook' element={<ImportPhysicalBook />}></Route>
           <Route path='/borrownote/return' element={<ReturnForm />}></Route>
+          <Route path='/borrownote/returnlate' element={<ReturnLate />}></Route>
           <Route path='/borrownote/bookservice' element={<BookService />}></Route>
           <Route path='/borrownote/customer' element={<Customer />}></Route>
         </Route>
         <Route exact path="/books" element={<Book />} />
         <Route exact path="/customers" element={<Orders />} />
         <Route path='/response' element={<Responses />}></Route>
+        <Route path='/report' element={<Report/>}></Route>
 
       </Routes>
     </Layout>

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import DashboardHeader from "../../components/DashboardHeader";
-
 import all_orders from "../../constants/orders";
 import { calculateRange, sliceData } from "../../utils/table-pagination";
 
 import axios from "axios";
 
 function Orders() {
+  
   // const [customerID, setCustomerID] = useState(0);
   // const [customerFirstName, setCustomerFirstName] = useState("");
   // const [customerLastName, setCustomerLastName] = useState("");
@@ -68,7 +68,6 @@ function Orders() {
   return (
     <div className="dashboard-content">
       <DashboardHeader btnText="New Customer" />
-
       <div className="dashboard-content-container">
         <div className="dashboard-content-header">
           <h2>Customer List</h2>

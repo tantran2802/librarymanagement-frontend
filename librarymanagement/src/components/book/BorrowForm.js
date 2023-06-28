@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import classes from './bookform.module.css';
 export default function Borrow() {
-
     const [searchVal, setSearchVal] = useState("");
     const [customer, setCustomer] = useState();
     const [borrowNoteId, setBorrowNoteId] = useState([]);
@@ -93,7 +92,7 @@ export default function Borrow() {
                     <input type="text" required id="physicalbookidlist" ref={physicalBookIdList} />
                 </div>
                 <div className={classes.actions}>
-                    <button>Create Borrow Note</button>
+                    <button>Confirm Borrow Note</button>
                 </div>
             </form>
 
