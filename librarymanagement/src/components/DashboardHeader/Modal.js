@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classes from './NewCustomerForm.module.css';
 function Modal(props) {
+    const [success, setSuccess] = useState(false);
     const history = useNavigate();
     const [customerReturn, setCustomerReturn] = useState();
     const firstName = useRef();
@@ -32,7 +33,7 @@ function Modal(props) {
                 }
             })
                 .then((res) => res.json())
-                .then(() => history('/home'))
+                .then(() => setSuccess(true))
                 .catch(err => console.log(err));
         }
         createNewCustomer();
@@ -65,6 +66,7 @@ function Modal(props) {
             <div className={classes.actions}>
                 <button className='btn btn--alt' onClick={cancelHandler}>Cancel</button>
             </div>
+            {success ? 'Success!' : ''}
         </form>
     </div>
     );

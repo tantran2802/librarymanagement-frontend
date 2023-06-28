@@ -14,6 +14,7 @@ import ImportPhysicalBook from './components/book/ImportPhysicalBook';
 import Responses from './pages/Response/response';
 import ReturnLate from './components/book/ReturnLate';
 import Report from './components/report/Report';
+import CreateAndImportBook from './components/book/CreateBookAndImport';
 function App() {
   return (
     <Layout>
@@ -26,6 +27,7 @@ function App() {
           <Route path='/borrownote/return' element={<ReturnForm />}></Route>
           <Route path='/borrownote/returnlate' element={<ReturnLate />}></Route>
           <Route path='/borrownote/bookservice' element={<BookService />}></Route>
+          <Route path='/borrownote/create-import' element={<CreateAndImportBook />}></Route>
           <Route path='/borrownote/customer' element={<Customer />}></Route>
         </Route>
         <Route exact path="/books" element={<Book />} />

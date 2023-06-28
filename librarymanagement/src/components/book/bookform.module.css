@@ -3,7 +3,7 @@ h1{
 }
 .form{
     background-color: #fffbfa;
-    height: 400px;
+    height: 100%;
     width: 500px;
     display: flex;
     flex-direction: column;
